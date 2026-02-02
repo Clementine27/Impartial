@@ -19,3 +19,33 @@ newStuff.textContent = "js edited text";
 newStuff.classList.add("huh"); 
 
 stuffInside.appendChild(newStuff); 
+
+
+
+// interractivity 
+
+const firstButton = document.querySelector("#firstButton"); 
+firstButton.addEventListener("click", ()=> {
+    alert("good girl"); 
+}); 
+
+
+// event type being passed as an argument 
+
+
+
+const secondButtons = document.querySelectorAll(".secondButton"); 
+
+secondButtons.forEach(   
+    (button) => {
+        button.addEventListener("click", function(e) {
+    console.log(e.target);
+    }
+)
+
+})
+
+const specialOne = document.querySelector(".secondButton#new"); 
+specialOne.addEventListener("click", function(e){
+    e.target.style.background = "blue"; 
+})
