@@ -1,0 +1,64 @@
+.alert-style {
+    color: green; 
+}
+
+.normal-text, .trigger{
+    color: grey
+}
+
+.trigger{
+    background-color: yellow
+}
+
+#mun {
+    color: red; 
+    background-color: black;
+}
+
+* {
+    outline: 2px solid ; 
+}
+
+
+div {
+    padding: 30px;  
+    text-align: center; 
+    margin: auto; 
+    /* margin-bottom: 10px;  */
+    color: #EEEE, 
+}
+
+
+/* doenst need to be named flex container, its just for 
+    illustative purposes 
+*/
+.flex-container {
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.flex-container div {
+    padding: 10px;
+    background: pink;  
+    border: 4pt blue;  
+    height: auto; 
+    /* flex: 1;  */
+    display: flex; 
+    justify-content: center;
+    gap: 2px; 
+}
+/* chaining would mean that you want a div box with all html tags*/
+/* space would imply that it is a child  */
+
+/* this is a flex item, which means whatever inside it 
+    obeys flex specifications, not inline specifications like text-align
+*/
+.flex-container .indi-box .new-box  {
+    background: aqua; 
+    border: 8px; 
+    height: auto;
+    align-items: center; /* vertical align */
+    /* horizontal */
+    justify-content: center;
+}
+
