@@ -1,19 +1,17 @@
-from flask import render_template
-from app import app 
+from flask import render_template, Blueprint
 
-# view funcs are funcs called when user 
-# wants to interract with a specific URL route within the app
+bp = Blueprint("main", __name__)
 
 
-# ex: 
 # when an user request the below 2 urls via these 2 decorators 
-@app.route("/")
+@bp.route("/")
     # route func from app module takes in the index() func as argument 
     # and does its little magic trick so that the first ar i.e. /index 
     # spits out output from func index
-@app.route("/index")
+@bp.route("/index")
 # invoke this func 
 def index(): 
     # return "hello there, gorgeous!"
     # user = {"username"}
     return render_template('index.html')
+

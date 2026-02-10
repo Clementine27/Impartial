@@ -1,25 +1,34 @@
-from flask import Flask 
-from config import Config
+from flask import Flask
+from app.config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+db = SQLAlchemy()
+migrate = Migrate()
 
-# application is an instance of Flask class 
-# were naming this instance the name of dir = app 
-# helps with loading associated files 
-app = Flask(__name__)
-# update the current app's config from Config object
-app.config.from_object(Config)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-
-# package app defined by dir & this file 
-# app instance above is a part of this package 
-# we importing routes after defining app because 
-# routes requires the app variable 
-
-# routes = protocol + domain name 
-# models define structure of data 
-from app import routes, models
+def create_app(config_class = Config): 
+    app = Flask(__name__)
+    
+    app.config.from_object(config_class)
+    db.init_app(app)
+    migrate.init_app(app, db)
 
 
+    from app import models
+    
+    from app.errors import bp as bp_errors  
+    app.register_blueprint(bp_errors)
+   
+    from app.routes import bp as bp_main  
+    app.register_blueprint(bp_main)
+
+    from app.api import bp as bp_api
+    app.register_blueprint(bp_api, url_prefix = "/api")
+    
+    return app
+
+    
+
+# @app.shell_context_processor
+# def make_shell_context(): 
+#     return {'sa': sa, 'so': so, 'db': db, 'Country': Country, 'Events': Events}
