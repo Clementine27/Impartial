@@ -32,3 +32,31 @@ https://www.urbanoutfitters.com/womens-clothing?color=red,brown&price=50-100
 
 https://www.depop.com/category/womens/tops/jumpers/?moduleOrigin=meganav&priceMin=10&priceMax=20&colours=white%2Cblack&isDiscounted=true
 
+https://www.google.com/search?q=The+Content-Length+entity-header+field+indicates+the+size+of+the+entity-body+in+bytes+or%2C+in+the+case+of+the+HEAD+method%2C+the+size+of+the+entity-body+that+would+have+been+sent+had+the+request+been+a+GET.&sourceid=chrome&ie=UTF-8
+
+
+
+data science research 
+build mass - app 
+ta 
+
+django 
+full stack 
+
+
+
+ what i have and need 
+ de intern 
+ ml research 
+ ta 
+ swe intern (full stack)
+
+what i need 
+ swe flask 
+ full stack 
+
+
+ computer hardware store searching web application, a pomodoro timer and calendar mobile application, and a cloud cybersecurity mobile application.
+
+
+ Next.js · Node.js · Amazon Web Services (AWS) · tRPC · PostgreSQL

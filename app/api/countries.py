@@ -1,7 +1,6 @@
 from app.api import bp
 from flask import request
 from app.models import Country
-import sqlalchemy as sa 
 from app import db
 
 
@@ -11,10 +10,15 @@ def getCountries():
     query = db.select(Country)
     
     continent = request.args.get("continent")
-    # db.get_or_404(Country())
-    if continent != None: 
+    # TODO get events from country 
+    events = request.args.get("events")
+
+    if continent is not None: 
         query = query.where(Country.continent == continent)
     
+    if events is not None: 
+        query = query.where()
+        # return the events that dont have any parents 
     countries = db.session.scalars(query).all()
     return  [country.to_dict() for country in countries]
 
