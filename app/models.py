@@ -45,6 +45,7 @@ class Country(ObjectToDictMixin, db.Model):
             "events": dict(self.events.to_dict())
         }
         return data 
+    # their flags -> aws s3
     
 class Events(db.Model): 
     __tablename__ = "events"

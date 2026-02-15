@@ -6,10 +6,14 @@
 
 write new api for events 
 
-test the new api out 
-
-set up the front end 
-
-
+# validate apis 
+# CORS Configuration
+# validate with Postman
 
 
+
+
+front end may want these things when interracting with the database for country 
+
+- search bar 
+- map 
