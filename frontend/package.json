@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview", 
+    "api": "cd impartial && venv/bin/flask run --no-debuger"
   },
   "dependencies": {
     "react": "^19.2.0",
