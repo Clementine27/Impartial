@@ -17,6 +17,7 @@ def getCountries():
     
     return  [country.to_dict() for country in countries]
 
+
 # get country by name/name variations 
 @bp.route("/countries/<int:id>", methods = ["GET"])
 def getCountry(id): 

@@ -6,62 +6,62 @@ import sqlalchemy.orm as so
 import json 
 
 association_table = sa.Table(
-    "association_table", 
+    "association_table",  
     db.Model.metadata, 
     sa.Column(
         "country_id", sa.ForeignKey("country.id", name = "countryIDKey"), primary_key= True ), 
     sa.Column(
-        "events_id", sa.ForeignKey("events.id", name = "eventIDKey"), primary_key= True )
+        "event_id", sa.ForeignKey("event.id", name = "eventIDKey"), primary_key= True )
 )
 
-# given a collection object, 
-class ObjectToDictMixin: 
-    def toDict(objects): 
-        objList = []
-        for obj in objects: 
-            jsonObj = json.dumps(vars(obj))
-            objList.append(jsonObj)
-        return objList
-         
+themes_table = sa.Table(
+    "themes_table", 
+    db.Model.metadata, 
+    sa.Column(
+        "event_id", sa.ForeignKey("event.id", name = "eventIDKey"), primary_key = True), 
+    sa.Column(
+        "themes_id", sa.ForeignKey("theme.id", name = "themeIDKEY"), primary_key= True)
+)
 
-class Country(ObjectToDictMixin, db.Model): 
+class Country(db.Model): 
     __tablename__ = "country"
+
     id: so.Mapped[int] = so.mapped_column(primary_key= True)
-    country: so.Mapped[str] = so.mapped_column(sa.String, unique = True, nullable= False)
-    continent: so.Mapped[str] = so.mapped_column(sa.String, nullable= False)
-    # variations: 
-    
-    events: so.Mapped[list[Events]] = so.relationship(secondary=association_table, back_populates="countries")
+    name: so.Mapped[str] = so.mapped_column(sa.String, unique = True, nullable= False)
+    continent: so.Mapped[str] = so.mapped_column(sa.String, nullable= False)    
+    events: so.Mapped[list[Event]] = so.relationship(secondary=association_table, back_populates="countries")
 
     def __repr__(self):
-        return '<Country {}>'.format(self.country)
-    
-        
+        return '<Country {}>'.format(self.name)
+            
     def to_dict(self): 
         data = {
             "id": self.id, 
-            "name": self.country, 
-            "continent": self.continent, 
-            "events": dict(self.events.to_dict())
+            "name": self.name, 
+            "continent": self.continent
         }
+        if self.events:             
+            data["eventsID"] = [event.id for event in self.events]
+
         return data 
-    # their flags -> aws s3
+
     
-class Events(db.Model): 
-    __tablename__ = "events"
+class Event(db.Model): 
+    __tablename__ = "event"
 
     id: so.Mapped[int] = so.mapped_column(primary_key= True)
     name: so.Mapped[str] = so.mapped_column(sa.String(50), nullable = False)
     startYear: so.Mapped[int] = so.mapped_column(sa.Integer, nullable = False)  
     endYear: so.Mapped[int] = so.mapped_column(sa.Integer)    
-    theme: so.Mapped[str] = so.mapped_column(sa.String(50)) 
+    themes: so.Mapped[list[Theme]] = so.relationship(secondary= themes_table)
     summary: so.Mapped[Optional[str]] = so.mapped_column(sa.Text)
     countries: so.Mapped[list[Country]] = so.relationship(secondary=association_table, back_populates="events")
     
-    childEvents: so.Mapped[Optional[list[Events]]] = so.relationship("Events", back_populates="parentEvents", remote_side = "events.parentId")
+    childEvents: so.Mapped[list[Event]] = so.relationship("Event", back_populates="parentEvents", remote_side = "event.parentId")
     
-    parentId: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey("events.id", name = "parentIDName"))
-    parentEvents: so.Mapped[Optional["Events"]] = so.relationship("Events", back_populates= "childEvents", remote_side= "events.id")
+    parentId: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey("event.id"))
+    
+    parentEvents: so.Mapped[list[Event]] = so.relationship("Event", back_populates= "childEvents", remote_side= "event.id")
         
     def __repr__(self):
         return '<Events {}>'.format(self.name)
@@ -70,17 +70,28 @@ class Events(db.Model):
         data = {
             "name": self.name, 
             "startYear": self.startYear, 
-            "endYear": self.endYear, 
-            "countries": self.countries, 
-            "theme": self.theme
+            "endYear": self.endYear
         } 
-       
+        if self.countries: 
+            data["countryIDs"] = [country.id for country in self.countries]
         if self.summary: 
-            data.summary = self.summary
-        if self.childEvents: 
-            data.childEvents = self.childEvents
+            data["summary"] = self.summary
         
+        if self.themes: 
+            data["themes"] = [theme.name for theme in self.themes]      
+        
+        if self.childEvents: 
+            data["childEventIDs"] = [event.id for event in self.childEvents]
+        
+        if self.parentEvents: 
+            data["parentEventIDs"] = [event.id for event in self.parentEvents]
+       
         return data
 
 
 
+class Theme(db.Model):
+    __tablename__ = "theme"
+ 
+    id: so.Mapped[int] = so.mapped_column(primary_key= True), 
+    name: so.Mapped[str] = so.mapped_column(sa.String(50), nullable = False)
