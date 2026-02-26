@@ -66,20 +66,40 @@ primary join: sync column of choice with left column in assc. table
 secondary join: sync column of choice with right column in assc. table 
 
 
-restful APIs -> test 
+- external connection () by 6am 
+    - wiki (good) - here by 6am then move 
+    - Historical Events API (good)
+    - history . com (biased)
+    - country based (bias)
+- laser bert & models & grade change 
+- frontend config by 5pm 
 
-# validate apis 
-# validate with Postman
+ranh tay: apply/leetcode 
+- laser dashboard 
+- bias control later 
+    - list of trusted resources 
+    - script of scoring 
 
+Future iterations: 
+- live update for more recent events 
+- search via summary 
+- search that support acronyms and mispellings 
+- webscraping pipeline that ingests more sources
+- phone support 
+- timeline stretches 
 - pagination? 
-- external connection 
 
 
-by 5am 
 
-then I do LASER 
-
-
-Select * 
-from Event 
-Where childEventIDs is not included in (select child_event from events_table)
+competitor: https://timeline.oldera.org/timeline/
+- different ui design for different purposes 
+    - this ones for fun 
+        - zoom in to months, who gives a shit 
+        - 1 source 
+    - mine solves a real problem: 
+        - starts with me being a stem major having to finish 
+        my college requirements 
+        - a lot of readings and researches required for paper assignemnts if i still want an A 
+        - but i dont have time for that and usually do it the day before dl 
+        - this website is supposed to facilitate getting that grasp of a background info required to quickly whisk up an paper 
+- ui kinda ass 
