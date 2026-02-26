@@ -25,3 +25,7 @@ def create_app(config_class = Config):
     app.register_blueprint(bp_api, url_prefix = "/api")
     
     return app
+
+    @app.shell_context_protector()
+    def make_shell_context(): 
+        return {'sa': sa, 'so': so, 'db': db, 'Country': Country, 'Event': event}
