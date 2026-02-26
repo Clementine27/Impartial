@@ -10,18 +10,16 @@ def getCountries():
     
     continent = request.args.get("continent")
 
-    if continent is not None: 
+    if continent: 
         query = query.where(Country.continent == continent)
     
     countries = db.session.scalars(query).all()
-    
     return  [country.to_dict() for country in countries]
 
 
 # get country by name/name variations 
 @bp.route("/countries/<int:id>", methods = ["GET"])
 def getCountry(id): 
-
     return db.get_or_404(Country, id).to_dict()
 
 
