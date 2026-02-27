@@ -1,8 +1,5 @@
 from flask import Flask
 from app.config import Config
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-
 from app.extentions import db, migrate
 
 def create_app(config_class = Config): 
@@ -24,8 +21,12 @@ def create_app(config_class = Config):
     from app.api import bp as bp_api
     app.register_blueprint(bp_api, url_prefix = "/api")
     
-    return app
-
+    from app.external.cli import register_etl_cli
+    register_etl_cli(app)
+    
     @app.shell_context_protector()
     def make_shell_context(): 
-        return {'sa': sa, 'so': so, 'db': db, 'Country': Country, 'Event': event}
+        from app.models import Country, Event
+        return {'db': db, 'Country': Country, 'Event': Event}
+
+    return app

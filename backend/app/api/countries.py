@@ -5,7 +5,7 @@ from app import db
 
 
 @bp.route("/countries", methods = ["GET"])
-def getCountries(): 
+def get_countries(): 
     query = db.select(Country)
     
     continent = request.args.get("continent")
@@ -19,7 +19,7 @@ def getCountries():
 
 # get country by name/name variations 
 @bp.route("/countries/<int:id>", methods = ["GET"])
-def getCountry(id): 
+def get_country(id): 
     return db.get_or_404(Country, id).to_dict()
 
 
