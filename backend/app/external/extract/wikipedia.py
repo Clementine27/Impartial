@@ -31,11 +31,11 @@ def get_events(country):
 
 def write_events(): 
     """
-    go through each entries in Country table in app.db, 
-    feed entry["name"] into get_events and store the returned 
-    dict in a json in ..data/
+    for country in country_conti 
+        get_evets(country)
+        
+    json.dump({file path }. response)
     """
-    with current_app.app_context(): 
-        # write with wiki prefix
+    with current_app.app_context():         
         pass 
 

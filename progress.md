@@ -20,18 +20,11 @@ front end may want these things when interracting with the database for country
 
 
 
-
 test out how front end is running 
 test out if flask 
 
 2h30-8h30 = 6h 
 
-1. subtasks 
-- buy face cleanser 
-- moisturiser 
-
-
-n
 2. restructure the backend & make sure you can run both front and back and connect (30 mins) 
 - figure out how things are working first of all 
 - what needs to change to adhere to the mega tutorial 
@@ -66,29 +59,53 @@ primary join: sync column of choice with left column in assc. table
 secondary join: sync column of choice with right column in assc. table 
 
 
-- external connection () by 6am 
-    - wiki (good) - here by 6am then move 
-    - Historical Events API (good)
-    - history . com (biased)
-    - country based (bias)
-- laser bert & models & grade change 
-- frontend config by 5pm 
 
-ranh tay: apply/leetcode 
-- laser dashboard 
-- bias control later 
+
+----
+[START HERE]
+
+
+Done by 12 --> frontend around 2 
+Set up the dashboard 
+
+- external connection () 
+    - wiki 
+    - britanica 
+
+
+the country entity ill enter manually 
+
+- frontend 
+    - config 
+    - header template 
+    - map page components
+    - events page components 
+    - timeline config 
+    - countries page components
+
+- bias control  
     - list of trusted resources 
     - script of scoring 
+- deploy: Netlify 
+(by 12am)
+
+testing: 
+- check if count_extract works by printing 
+db.Country
+- check if wikipedia works by seeing if it populated data/ with json files/countries 
+
 
 Future iterations: 
+- more countries 
 - live update for more recent events 
 - search via summary 
 - search that support acronyms and mispellings 
 - webscraping pipeline that ingests more sources
 - phone support 
 - timeline stretches 
-- pagination? 
-
+- pagination
+- Avoid duplicates
+- more robust error handling
 
 
 competitor: https://timeline.oldera.org/timeline/
