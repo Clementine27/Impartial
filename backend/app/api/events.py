@@ -1,6 +1,6 @@
 from app.api import bp 
 from app.models import Event, Theme, Country, events_table
-from app import db 
+from backend.app import db 
 from flask import request 
 import datetime as dt
 
