@@ -1,6 +1,8 @@
 from flask import Flask
 from app.config import Config
 from app.extentions import db, migrate
+from app.external.extract.wikipedia import get_history
+
 
 def create_app(config_class = Config): 
     app = Flask(__name__)
@@ -24,9 +26,22 @@ def create_app(config_class = Config):
     from app.external.cli import register_etl_cli
     register_etl_cli(app)
     
-    @app.shell_context_protector()
+    @app.shell_context_processor
     def make_shell_context(): 
         from app.models import Country, Event
         return {'db': db, 'Country': Country, 'Event': Event}
 
     return app
+
+
+def main():     
+    # from config import Config
+    # from external.extract import get_sections
+
+    get_history("Vietnam")
+    
+    
+# if __name__ == "__main__": 
+#     main()
+    
+    

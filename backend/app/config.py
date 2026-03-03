@@ -8,4 +8,12 @@ class Config:
         'sqlite:///' + os.path.join(basedir, 'app.db')
         
     WIKIPEDIA_URL = "https://en.wikipedia.org/w/api.php"
+    
+    WIKI_HEADERS = {
+        "User-Agent": "Impartial/1.0 https://github.com/Clementine27/Impartial"
+    }
+    
+    WIKI_AUTHENTICATION = {
+        "Authorization": "Bearer"
+    }
 

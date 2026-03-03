@@ -1,0 +1,150 @@
+.Event_view {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
+
+}
+
+.Event_info {
+    min-width: 0;
+    opacity: 1;
+    flex: 1; 
+    padding: 20pt; 
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(0);
+    overflow: translateX(0);
+    transition: opacity .1s ease, transform 3s ease, flex 3s ease, background-color .1s ease;
+    position: relative;  
+}
+
+.Event_info.hidden {
+    flex: 0;
+    /* transform: translateX(-100%); */
+    transition: transform 3s ease, flex 3s ease;
+     
+}
+
+.Event_info.hidden .Event_name, 
+.Event_info.hidden .Event_date,
+.Event_info.hidden .Event_summary,
+.Event_info.hidden .Event_themes, 
+.Event_info.hidden .Event_themes {
+    opacity: 0;
+    transition: opacity .1s ease;
+}
+
+.Event_padding {
+    flex: 1; 
+    background-color: grey;
+}
+
+
+.Event_name {
+    flex: 1; 
+    background-color: brown;
+    align-items: center; 
+    display: flex;
+}
+.Event_name h1 {
+    text-align: left;
+    margin: auto 0;
+}
+
+.Event_button {
+    width: 30pt;
+    height: 30pt;
+    top: 80pt; 
+    right: 20pt;  
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    overflow: visible;
+    transform: translateX(0);
+    transition: transform 3s ease, background-color 3s ease, opacity;  
+    position: absolute;  
+}
+
+.Event_button.hidden {
+    background-color: grey;
+    transform: translateX(130%);
+}
+
+.Event_date {
+    flex: .1; 
+    background-color: green;
+}
+.Event_summary_spacing {
+    flex: .5; 
+    background-color: grey;
+}
+.Event_summary{
+    flex: 5; 
+    background-color: pink;
+}
+.Event_themes{
+    flex: 1; 
+    background-color: black;
+}
+
+.Event_timeline {
+    min-width: 0;
+    background-color: purple;
+    flex: 1; 
+    padding: 20pt;
+    transition: flex 3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Event_timeline.expanded {
+    flex: 2; 
+    transition: flex 3s ease;
+
+}
+
+.vline {
+    width: 2pt;
+    background-color: white;
+}
+
+
+
+
+.Timeline {
+    height: 2pt;
+    width: 100%;
+    background-color: white;
+
+}
+
+
+.Timeline_w_stamps {
+    height: 50pt; 
+    width: 100%;
+    flex-direction: column;
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Timestamps {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.stuff {
+    height: 40pt; 
+    width: 40pt; 
+    background-color: green;
+}
