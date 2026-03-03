@@ -1,42 +1,42 @@
+
+External APIs game plan: 
+- make wiki works 
+    - how to query stuff under a specific subsection 
+    - <h2 id=\"History\">History</h2>
+
+
+
+input: wiki api 
+    process: 
+        get the index of history session of the country's page 
+        
+        from that index, parse and get all the text
+
+        from text, get events 
+
+        from events output to json file 
+
+output: 
+- json files of all events on that countries page so transform can go through it and map to Event schema 
+
+
+write events 
+    for country in  countries txt, 
+        response = get_events(country)  
+        response.jsonify to path .data(wiki_events) 
+
+ohhhh, so when a dir has an init file 
+its treated as a module/package rather 
+than just a dir, so think of it as an extension like pandas
+
+
+
+--------------------
 - finish writing to dict for country 
 
 - finsih writing to dict for events 
 
-- allow sql to update the new schema 
-
-write new api for events 
-
-# validate apis 
-# CORS Configuration
-# validate with Postman
-
-
-
-
-front end may want these things when interracting with the database for country 
-
-- search bar 
-- map 
-
-
-
-test out how front end is running 
-test out if flask 
-
-2h30-8h30 = 6h 
-
-2. restructure the backend & make sure you can run both front and back and connect (30 mins) 
-- figure out how things are working first of all 
-- what needs to change to adhere to the mega tutorial 
-
-
-3. CORS
-4. API design again 
-5. frontend input validation 
-6. error handling
---- 
-7. design frontend 
-
+---------------------
 
 flask run -> create_app() triggered --> initialise app, db n migration system -> register model, error, routes, api blueprints (because usually, the elements are registered to the app, but the app hasnt been created yet, so we are using bp as a placeholder)
 

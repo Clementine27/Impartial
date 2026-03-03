@@ -1,0 +1,12 @@
+.clicked{
+    transform: rotate(180deg);
+    /* transition: transform 3s ease; */
+    background-color: transparent;
+    font-size: 1.5em;
+}
+
+.unclicked{
+    background-color: transparent;
+    font-size: 1.5em;
+
+}

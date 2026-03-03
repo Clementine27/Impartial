@@ -1,7 +1,7 @@
 import click
 from .extract import run_all_extracts
 from .transform import run_all_transforms
-from .load import run_all_loads
+# from .load import run_all_loads
 
 def register_etl_cli(app):
     @app.cli.command("etl")
@@ -11,5 +11,5 @@ def register_etl_cli(app):
             run_all_extracts()
         if step in ("transform", "all"):
             run_all_transforms()
-        if step in ("load", "all"):
-            run_all_loads()
+        # if step in ("load", "all"):
+        #     run_all_loads()

@@ -1,34 +1,39 @@
-// import { useState } from "react";
-// import { Fragment } from "react"
 
+import "./Header.css"
 
 export default function Header(){
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Impartial</a>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary my-bar">
+    <div className="container-fluid ">
+      
+    <a className="navbar-brand" href="#">
+      Impartial
+    </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         
 
 
-        <form class="d-flex" role="search">
-        <input class="form-control rounded-pill" type="search" placeholder="Search" aria-label="Search"/>
+        <form className="d-flex" role="search">
+        <input className="form-control rounded-pill" type="search" placeholder="Search" aria-label="Search"/>
         </form>
     
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+        <li className="nav-item">
+          <a className="nav-link" href="#">About</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Help</a>
-        </li>        
+        <li className="nav-item">
+          <a className="nav-link" href="#">Help</a>
+        </li>
+        
       </ul>
-
+      
     </div>
   </div>
 </nav>

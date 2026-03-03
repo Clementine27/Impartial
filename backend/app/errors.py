@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint
-from backend.app import db
+from app import db
 
 bp = Blueprint("routes", __name__)
 @bp.errorhandler(404)

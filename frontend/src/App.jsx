@@ -1,13 +1,12 @@
-import Header from "./components/Header"
+import Events from "./pages/Events"
+// import "./index.css"
+import MainLayout from "./layouts/MainLayout"
 
 
 export default function App(){
   return (
-  
-  <div className="flex display: flexx">
-    <Header/>
-  </div>
-
-
+  <MainLayout>
+      <Events/>
+  </MainLayout>
   )
 }

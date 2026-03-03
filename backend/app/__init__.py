@@ -26,7 +26,7 @@ def create_app(config_class = Config):
     from app.external.cli import register_etl_cli
     register_etl_cli(app)
     
-    @app.shell_context_protector()
+    @app.shell_context_processor
     def make_shell_context(): 
         from app.models import Country, Event
         return {'db': db, 'Country': Country, 'Event': Event}

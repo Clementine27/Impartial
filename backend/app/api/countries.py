@@ -1,7 +1,7 @@
 from app.api import bp
 from flask import request
 from app.models import Country
-from backend.app import db
+from app import db
 
 
 @bp.route("/countries", methods = ["GET"])
