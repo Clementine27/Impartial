@@ -1,42 +1,50 @@
-
-import "./Header.css"
+import React from "react";
+import { useNavigate } from 'react-router-dom';
+import "./Header.css" 
 
 export default function Header(){
-  return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary my-bar">
-    <div className="container-fluid ">
-      
-    <a className="navbar-brand" href="#">
-      Impartial
-    </a>
+    return (
+    <>
+        <div className="CustomHeader">
+            <div className="NameHolder">
+                <ButtonRedirecter route = "/" buttonName = "Impartial" header = "yea" />
+            </div>
 
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
+            <div className="NavigationHolder">
+                <NavigationBar/>
+            </div>
 
+            <div className="CountryHolder">
+                <ButtonRedirecter route = "/countries" buttonName = "Countries"/>
 
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        
-
-
-        <form className="d-flex" role="search">
-        <input className="form-control rounded-pill" type="search" placeholder="Search" aria-label="Search"/>
-        </form>
+            </div>
+            <div className="EventHolder">
+                <ButtonRedirecter route = "/events" buttonName = "Events"/>
+            </div>
+            </div>
+        <div className="horiLine"></div>
+    </>
     
-        <li className="nav-item">
-          <a className="nav-link" href="#">About</a>
-        </li>
 
-        <li className="nav-item">
-          <a className="nav-link" href="#">Help</a>
-        </li>
-        
-      </ul>
-      
-    </div>
-  </div>
-</nav>
+ )
+}
 
-  )
+function ButtonRedirecter({route, buttonName, header}){
+    const navigate = useNavigate(); 
+    return (
+    <button className= {header ? "Button Header": "Button Regular"} 
+            onClick={() => navigate(route)} >
+        {buttonName}
+     </button>); 
+}
+
+
+function NavigationBar(){
+    return (
+        <>    
+            <form className="d-flex NavBar" role="search">
+            <input className="form-control rounded-pill" type="search" placeholder="Search" aria-label="Search"/>
+            </form>
+        </>
+    )
 }

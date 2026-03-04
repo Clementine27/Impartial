@@ -1,12 +1,16 @@
 .clicked{
     transform: rotate(180deg);
-    /* transition: transform 3s ease; */
+    transition: transform .5s ease;
     background-color: transparent;
     font-size: 1.5em;
+    outline: none;        
+    border: none; 
 }
 
 .unclicked{
     background-color: transparent;
     font-size: 1.5em;
+    border: none; 
+
 
 }

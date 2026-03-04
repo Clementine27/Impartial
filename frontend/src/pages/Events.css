@@ -1,5 +1,5 @@
 .Event_view {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -9,45 +9,49 @@
 
 }
 
+.Event_info > *   {
+    opacity: 1;
+    transform: translateX(0);
+    transition: flex .05s, transform .9s ease .05s, opacity .1s ease ;
+}
 .Event_info {
     min-width: 0;
-    opacity: 1;
     flex: 1; 
     padding: 20pt; 
-    background-color: grey;
+    /* background-color: grey; */
     display: flex;
     flex-direction: column;
-    transform: translateX(0);
-    overflow: translateX(0);
-    transition: opacity .1s ease, transform 3s ease, flex 3s ease, background-color .1s ease;
-    position: relative;  
-}
 
-.Event_info.hidden {
-    flex: 0;
-    /* transform: translateX(-100%); */
-    transition: transform 3s ease, flex 3s ease;
-     
+    opacity: 1;
+    transform: translateX(0);
+    transition: flex .05s, transform .5s ease .05s, opacity .5s ease ;
+    /* position: relative;   */
 }
 
 .Event_info.hidden .Event_name, 
 .Event_info.hidden .Event_date,
 .Event_info.hidden .Event_summary,
-.Event_info.hidden .Event_themes, 
 .Event_info.hidden .Event_themes {
     opacity: 0;
-    transition: opacity .1s ease;
+    transform: translateX(-10%);
+    transition: flex .5s ease, transform .5s ease, opacity .1s ease;
+}
+
+.Event_info.hidden  {
+    flex: 0;
+    transition: flex .5s ease, transform .5s ease, opacity .1s ease ;
+     
 }
 
 .Event_padding {
     flex: 1; 
-    background-color: grey;
+    /* background-color: grey; */
 }
 
 
 .Event_name {
     flex: 1; 
-    background-color: brown;
+    /* background-color: brown; */
     align-items: center; 
     display: flex;
 }
@@ -66,43 +70,52 @@
     align-items: center;
     justify-content: center;
     background-color: transparent;
+    outline-color: transparent;
     overflow: visible;
     transform: translateX(0);
-    transition: transform 3s ease, background-color 3s ease, opacity;  
+    transition: transition .5s ease ;  
     position: absolute;  
+    outline-color: transparent;
+    /* border: black; */
+
 }
 
 .Event_button.hidden {
-    background-color: grey;
+    opacity: 1;
+    background-color: black;
     transform: translateX(130%);
+    transition: all .5s ease; 
+    /* border: red; */
+
 }
 
 .Event_date {
     flex: .1; 
-    background-color: green;
+    /* background-color: green; */
 }
 .Event_summary_spacing {
     flex: .5; 
-    background-color: grey;
+    /* background-color: grey; */
 }
 .Event_summary{
     flex: 5; 
-    background-color: pink;
+    /* background-color: pink; */
 }
 .Event_themes{
     flex: 1; 
-    background-color: black;
+    /* background-color: black; */
 }
 
 .Event_timeline {
     min-width: 0;
-    background-color: purple;
+    /* background-color: purple; */
     flex: 1; 
     padding: 20pt;
     transition: flex 3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2em;
 
 }
 
@@ -113,11 +126,9 @@
 }
 
 .vline {
-    width: 2pt;
+    width: 2px;
     background-color: white;
 }
-
-
 
 
 .Timeline {
@@ -132,7 +143,7 @@
     height: 50pt; 
     width: 100%;
     flex-direction: column;
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     justify-content: space-between;
 }

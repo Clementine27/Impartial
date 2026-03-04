@@ -1,4 +1,66 @@
-/* .my-bar{
-    background-color: black;
+
+.CustomHeader{
+    display: flex; 
+    /* background-color: blue; */
+    /* padding: 2em;  */
+    height: 100%; 
+    width: 100%; 
+    align-items: center;
+    direction: row; 
+    align-items: center;
+}
+.CustomHeader > * {
+    /* border: 2px solid black; */
+    height: 100%; 
+    width: 100%; 
+    flex: 1;  
+    align-items: center;
+    display: flex; 
+    justify-content: center;
+    /* vertical-align: middle */
+    
+}
+
+.NameHolder{
+    font-weight:bold; 
+    flex: 1.5;  
+    align-self: center;
+
+}
+
+.NavigationHolder{
+    flex: 6; 
+}
+
+/* stuff for the texts  */
+
+
+.Button {
     color: white; 
-} */
+    font-weight:bold; 
+    font-size: 1.15em;
+    outline: none;        
+    border: none;
+    background-color: transparent; 
+}
+
+.Button.Header{
+    width: 100%; 
+    height: 100%; 
+    /* font-size:medium;  */
+    /* font-weight: */
+    align-self: center;
+    font-size: 2.75em;
+    font-weight: normal; 
+
+}
+
+.NavBar {
+    width: 100%;
+    align-self: center;
+}
+.horiLine{
+    width: 100%;
+    height: 2px; 
+    background-color: white;
+}
