@@ -1,4 +1,10 @@
+* hook front end with back end 
+* fix external api 
+* deploy 
+* more front end pages (use events as template for both events and countries later)
 
+
+-----
 External APIs game plan: 
 - make wiki works 
     - how to query stuff under a specific subsection 
@@ -106,7 +112,7 @@ Future iterations:
 - pagination
 - Avoid duplicates
 - more robust error handling
-
+- frontend bug: the transition of opening the info pane after closing have words appearing too fast 
 
 competitor: https://timeline.oldera.org/timeline/
 - different ui design for different purposes 
